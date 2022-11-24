@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ski-pass-sales-p3",
+  "private_key_id": "c40a8aa2860f7d12fb4cac9b47d8037ce5fc6a16",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDEmdlnMsIyFexW\n6sS6azir2XXqYASlLHnMW9AAJb5LTAvok6HQzhV3his3wKIoyVElFLEeFCIjlzJi\nQjDVz1QQnmLe2zrLTye8I6e9tHZXZxvwo5bRCm5G8MGCKcMoluveLtYw67H9jH3d\nGoalSp1Xi9Au/HRF40vboh9OymB/nhWlZt3RQw4MPkPx5lioLIZqh1qdZb7IoeSQ\neTMbF2mKmssECy9BlXG86rr0rbKRbsxfddpHklL/zwCRFCQSXFQkhjxh9WanKfAi\nrmIPaQXrbTWuJ6bXe4UJiErLInvl7ghrOnfXKJ6FoxuQNt2FImby4O5qJNxus+sO\nkeeqLN8xAgMBAAECggEATu0MsDdaas0OUl5xl/1PhP4KLotZkg3m37nEKSr92DCx\nXy9VeQQi7hb45qr47rLTVrWV3WNrySn72iKEhHF1aC6NtrYARnqCky8lOi1mjPQh\n7VtfQpCTcPtaVCz74iGkk0/uQTl9/TIXnVn20AjCXdENRK+o5h236HaPZwwr7U8P\nHbgqnaSGUREfl3X84OvF5trJOgSDt2vS4PtZX8OWc+MS2nphOYrbnrjDVIgHbNW6\n54cKTly6jEhM2+NAFs/xjCkQ+UBqBV7FLOHUG6Rluf0TLn6KqAcc7J1sIyd/Su10\nU6mrDCwYq1vwOUeROq68CGEzfn4GoJhIDLmt/e7t2QKBgQDuiiROLM41ZDifmL1G\nM3yAVCKWoBDA37/vAAZzz5vl/zqcLLCexoi8Z9aPdaDFE47STjWh+Ntdr+OJ4rlR\n4Nv8mrTYuzlD3vHsrzilma1l8cFW0NLNK6qzF9D1/keNFNyyVdhNruKH3R68BhyC\nUgSt7aQi5kszvkR1O0LlUfHVFwKBgQDS/dfRdXzYSmJ2C+06eg1i3jSA2AJ7mrIa\nffVwZFzhmeDT42M/HjQukvB1tIiZJHaQIgG3E9tSFsaxKEq1S1Mm1AiRTVIkjhpK\n1a+GCN3/do9Fo3WSPxLq2yOK5OljNFjIPwJQ3YkBFQWN+rPBtsjjbtsbCGEhaizI\ndqQzBMGq9wKBgADa9/RbzsV8PYO8/XjB+IFRS+p0WnsGkl6eBmfl5640cxZaRqvb\nFGRwjuFmz5PFVS7F3wVcqhS068Dz0ixL/R3zxBA+456trvplSnO1kFycOFBCYW8g\n5/TKchJfvgvwdjYhfqwQo3lPPqv37aQ9/QxOnNcPMlfWJ9Kvyrady5szAoGBAKW9\nQ4BFMznQTMIAImzyHXvRoxqnFGQ2I7wNv/R20kNhliu8DmUxe7ouMPe1RixOaVhV\nblV7Iqi8PX5CcVUyg3IX01cYjvMqMVshuoymgITBhFAm1B96roiQdb4QjYkhQLCk\nVlRhgdK4ybE7A2OjCvElTrZQgcQ23FDoaZmuHdgHAoGBAIaQUrnYYqzZ1QpFYDwv\nfQxLg1RqULdhLAUkmOprRYZ7MRERZiieVo1+y74x0FV6HV+a7ywWmcI6kLwq1303\nv+SC6rbbkskIHOggB3Wrt5Vr+yn/gJ+6xUIlckENqQFAkqQcEtXtLqYD5WcDf6NA\nFuPvR4nWzU77XBPnirWiERJf\n-----END PRIVATE KEY-----\n",
+  "client_email": "szymon@ski-pass-sales-p3.iam.gserviceaccount.com",
+  "client_id": "110723101635165090799",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/szymon%40ski-pass-sales-p3.iam.gserviceaccount.com"
+}
