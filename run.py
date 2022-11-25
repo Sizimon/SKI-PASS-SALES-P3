@@ -46,7 +46,6 @@ def user_sales_input():
                     return daily_sales, weekly_sales
                 elif confirm == 'N':
                     print('Resubmit your sales numbers.')
-                    run()
                     break
                 else:
                     print('Invalid choice, valid choices are; Y or N.')
