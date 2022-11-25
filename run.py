@@ -93,16 +93,12 @@ def calculate_total_pass_sales(sum1, sum2):
     '''
     print('Calculating the total sales...\n')
     
-    
     daily_data = [int(num) for num in sum1]
     weekly_data = [int(num) for num in sum2]
     total_data = [num1 + num2 for num1, num2 in zip(daily_data, weekly_data)]
     
-
     return total_data
     
-    
-
 
 def main():
     '''
