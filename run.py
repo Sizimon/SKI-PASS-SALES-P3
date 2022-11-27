@@ -12,6 +12,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('SKI_PASS_SALES')
 
+
 def user_sales_input():
     '''
     Ask the user to input the sales numbers.
@@ -52,8 +53,6 @@ def user_sales_input():
                 else:
                     print('Invalid choice, valid choices are; Y or N.\n')
             break
-
-
 
 
 def data_validation(value1, value2):
@@ -142,6 +141,43 @@ def calculate_net_from_pass(sum):
         print('\nAborting net calculations.')
         main()
 
+
+def expected_pass_sales(sum1, sum2):
+    '''
+    Gives the user feedback based on pass sales from the day,
+    including an average daily sales expectancy, and displays whether they are
+    below or above the average.
+    '''
+    expected_dict_daily = {
+            0: ['Are', 165],
+            1: ['Borgafjall', 48],
+            2: ['Hovden', 102],
+            3: ['Val De Saire', 322],
+            4: ['Zakopane', 204]
+        }
+    expected_dict_weekly = {
+            0: ['Are', 74],
+            1: ['Borgafjall', 23],
+            2: ['Hovden', 68],
+            3: ['Val De Saire', 192],
+            4: ['Zakopane', 134]
+    }
+    print('------------------------------------------------------------\n')
+    print('All data successfully submitted.')
+    proceed = input('Would you like to see expected pass sales? (Y/N)\n')
+    print('------------------------------------------------------------\n')
+    if proceed == 'Y':
+        for key, value in expected_dict_daily.items():
+            print(f'{value[0]} has a target daily pass sales of {value[1]}')
+            print(f'Todays daily pass sales were {sum1[key]}\n')
+        for key, value in expected_dict_weekly.items():
+            print(f'{value[0]} has a target weekly pass sales of {value[1]}')
+            print(f'Todays weekly pass sales were {sum2[key]}\n')
+    elif proceed == 'N':
+        print('Ending the program, thank you for your submissions.')
+        main()
+
+
 def main():
     '''
     Run all program functions
@@ -158,6 +194,8 @@ def main():
         update_worksheet(revenue_data, 'GROSS')
         net_data = calculate_net_from_pass(revenue_data)
         update_worksheet(net_data, 'NET')
+        expected_pass_sales(daily_sales, weekly_sales)
         print('============================================================')
+
 
 main()
