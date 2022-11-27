@@ -20,9 +20,9 @@ def user_sales_input():
     '''
     while True:
         print('------------------------------------------------------------')
-        print('Welcome, I hope you have had a good day.')
+        print('Welcome, I hope you have had a good day.\n')
         print('Please enter in the daily pass sales for today below.')
-        print('Enter the data for our 5 locations seperated by commas.')
+        print('Enter the data for our 5 locations seperated by commas.\n')
         print('Order: Are, Borgafjall, Hovden, Val de Saire, Zakopane.')
         print('EG. 546, 259, 1203, 455, 756')
         print('------------------------------------------------------------\n')
@@ -46,7 +46,7 @@ def user_sales_input():
                     return daily_sales, weekly_sales
                 elif confirm == 'N':
                     print('Resubmit your sales numbers.\n')
-                    break
+                    main()
                 else:
                     print('Invalid choice, valid choices are; Y or N.\n')
             break
@@ -98,6 +98,30 @@ def calculate_total_pass_sales(sum1, sum2):
     total_data = [num1 + num2 for num1, num2 in zip(daily_data, weekly_data)]
     
     return total_data
+
+
+def calculate_revenue_from_pass(sum1, sum2):
+    '''
+    Ask the user if they would like to calculate revenue from the pass sales.
+    Initiate a sequence which calculates the revenue from daily passes, then weekly passes.
+    Add them together to produce total revenue.
+    Daily Pass is Priced at $25
+    Weekly Pass is Priced at $125
+    '''
+    gross = SHEET.worksheet('GROSS')
+
+    proceed = input('Proceed with revenue calculations? (Y/N)\n')
+    if proceed == 'Y':
+        print('Calculating total revenue...\n')
+        
+        daily_revenue = [int(x) * 25 for x in sum1]
+        weekly_revenue = [int(x) * 125 for x in sum2]
+        total_revenue = [num1 + num2 for num1, num2 in zip(daily_revenue, weekly_revenue)]
+        return total_revenue
+    elif proceed == 'N':
+        print('\nAborting revenue calculations.')
+        main()
+
     
 
 def main():
@@ -110,8 +134,11 @@ def main():
         update_worksheet(daily_sales, 'DAILY')
         weekly_sales = data[1]
         update_worksheet(weekly_sales, 'WEEKLY')
+        print('------------------------------------------------------------\n')
         total_sales = calculate_total_pass_sales(daily_sales, weekly_sales)
         update_worksheet(total_sales, 'TOTAL')
-
+        print('\n------------------------------------------------------------\n')
+        revenue_data = calculate_revenue_from_pass(daily_sales, weekly_sales)
+        update_worksheet(revenue_data, 'GROSS')
 
 main()
