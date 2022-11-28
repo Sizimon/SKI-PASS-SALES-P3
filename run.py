@@ -12,6 +12,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('SKI_PASS_SALES')
 
+# Run program initial function, gathers data from user which is essential for the program to run.
 
 def user_sales_input():
     '''
@@ -54,6 +55,7 @@ def user_sales_input():
                     print('Invalid choice, valid choices are; Y or N.\n')
             break
 
+# Validates that data input by user is a valid format.
 
 def data_validation(value1, value2):
     '''
@@ -74,6 +76,7 @@ def data_validation(value1, value2):
         return False
     return True
 
+# Updates google worksheet with data passed through argument.
 
 def update_worksheet(data, worksheet):
     '''
@@ -86,6 +89,7 @@ def update_worksheet(data, worksheet):
     worksheet_to_update.append_row([int(x) for x in data])
     print(f'{worksheet} has now updated successfully.\n')
 
+# Function for adding the two lists of data from the user, together.
 
 def calculate_total_pass_sales(sum1, sum2):
     '''
@@ -102,11 +106,13 @@ def calculate_total_pass_sales(sum1, sum2):
 
     return total_data
 
+# Function which calculates evenue from the pass sales depending on fixed price.
 
 def calculate_revenue_from_pass(sum1, sum2):
     '''
     Ask the user if they would like to calculate revenue from the pass sales.
-    Initiate a sequence which calculates the revenue from daily passes, then weekly passes.
+    Initiate a sequence which calculates the revenue from daily passes, 
+    then weekly passes.
     Add them together to produce total revenue.
     Daily Pass is Priced at $25
     Weekly Pass is Priced at $125
@@ -123,13 +129,17 @@ def calculate_revenue_from_pass(sum1, sum2):
     elif proceed == 'N':
         print('\nAborting revenue calculations.')
         main()
+    else:
+        print('Invalid choice, valid choices are; Y or N.\n')
 
+# Function that calculates income after tax from revenue data.
 
 def calculate_net_from_pass(sum):
     '''
-    Tell the user that the net will be calculated and ask them to commence the sequence,
-    the program will then take the calculated revenue from before and take off the sales tax
-    to produce a net.
+    Tell the user that the net will be calculated and 
+    ask them to commence the sequence.
+    The program will then take the calculated revenue from before,
+    and take off the sales tax to produce a net.
     '''
     print('------------------------------------------------------------\n')
     proceed = input('Proceed with the net revenue calculations? (Y/N)\n')
@@ -140,7 +150,11 @@ def calculate_net_from_pass(sum):
     elif proceed == 'N':
         print('\nAborting net calculations.')
         main()
+    else:
+        print('Invalid choice, valid choices are; Y or N.\n')
 
+# Function which will show user expected sales per location
+# and todays performance as comparison 
 
 def expected_pass_sales(sum1, sum2):
     '''
@@ -166,16 +180,18 @@ def expected_pass_sales(sum1, sum2):
     print('All data successfully submitted.')
     proceed = input('Would you like to see expected pass sales? (Y/N)\n')
     print('------------------------------------------------------------\n')
-    if proceed == 'Y':
+    if proceed == 'Y' or 'y':
         for key, value in expected_dict_daily.items():
             print(f'{value[0]} has a target daily pass sales of {value[1]}')
             print(f'Todays daily pass sales were {sum1[key]}\n')
         for key, value in expected_dict_weekly.items():
             print(f'{value[0]} has a target weekly pass sales of {value[1]}')
             print(f'Todays weekly pass sales were {sum2[key]}\n')
-    elif proceed == 'N':
+    elif proceed == 'N' or 'n':
         print('Ending the program, thank you for your submissions.')
         main()
+    else:
+        print('Invalid choice, valid choices are; Y or N.\n')
 
 
 def main():
