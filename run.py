@@ -158,7 +158,7 @@ def calculate_revenue_from_pass(sum1, sum2):
             main()
         else:
             print("Invalid choice, valid choices are; Y or N.\n")
-            break
+        break
 
 
 # Function that calculates income after tax from revenue data.
@@ -254,5 +254,6 @@ def main():
         update_worksheet(net_data, "NET")
         expected_pass_sales(daily_sales, weekly_sales)
         print("============================================================")
+
 
 main()
