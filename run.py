@@ -44,7 +44,7 @@ def user_sales_input():
             print('The data you entered is valid.')
             print('Confirm that you have entered the correct data.\n')
             while True:
-                confirm = input('Type Y for Yes or N for No:\n')
+                confirm = input('Type Y for Yes or N for No:\n').strip().upper()
                 if confirm == 'Y':
                     print('You have confirmed todays sales.\n')
                     return daily_sales, weekly_sales
@@ -118,7 +118,7 @@ def calculate_revenue_from_pass(sum1, sum2):
     Weekly Pass is Priced at $125
     '''
     print('------------------------------------------------------------\n')
-    proceed = input('Proceed with revenue calculations? (Y/N)\n')
+    proceed = input('Proceed with revenue calculations? (Y/N)\n').strip().upper()
     if proceed == 'Y':
         print('Calculating total revenue...\n')
 
@@ -131,6 +131,7 @@ def calculate_revenue_from_pass(sum1, sum2):
         main()
     else:
         print('Invalid choice, valid choices are; Y or N.\n')
+        
 
 # Function that calculates income after tax from revenue data.
 
@@ -142,7 +143,7 @@ def calculate_net_from_pass(sum):
     and take off the sales tax to produce a net.
     '''
     print('------------------------------------------------------------\n')
-    proceed = input('Proceed with the net revenue calculations? (Y/N)\n')
+    proceed = input('Proceed with the net revenue calculations? (Y/N)\n').strip().upper()
     if proceed == 'Y':
         print('Calculating net revenue...\n')
         total_net = [int(x) * 67/100 for x in sum]
@@ -178,20 +179,21 @@ def expected_pass_sales(sum1, sum2):
     }
     print('------------------------------------------------------------\n')
     print('All data successfully submitted.')
-    proceed = input('Would you like to see expected pass sales? (Y/N)\n')
+    proceed = input('Would you like to see expected pass sales? (Y/N)\n').strip().upper()
     print('------------------------------------------------------------\n')
-    if proceed == 'Y' or 'y':
+    if proceed == 'Y':
         for key, value in expected_dict_daily.items():
             print(f'{value[0]} has a target daily pass sales of {value[1]}')
             print(f'Todays daily pass sales were {sum1[key]}\n')
         for key, value in expected_dict_weekly.items():
             print(f'{value[0]} has a target weekly pass sales of {value[1]}')
             print(f'Todays weekly pass sales were {sum2[key]}\n')
-    elif proceed == 'N' or 'n':
+    elif proceed == 'N':
         print('Ending the program, thank you for your submissions.')
         main()
     else:
         print('Invalid choice, valid choices are; Y or N.\n')
+
 
 
 def main():
